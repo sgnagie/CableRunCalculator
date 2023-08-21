@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.852
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CableRunCalculator", "CableRunCalculator\CableRunCalculator.csproj", "{74BC56D2-1762-4408-AD5D-3C68D402EC67}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74BC56D2-1762-4408-AD5D-3C68D402EC67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74BC56D2-1762-4408-AD5D-3C68D402EC67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74BC56D2-1762-4408-AD5D-3C68D402EC67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74BC56D2-1762-4408-AD5D-3C68D402EC67}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {37C51AA2-EAFD-4C5A-950C-16C06F3614C1}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://vm0dwcorpt0001.corp.chartercom.com:8080/tfs/portalteamprojects
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CableRunCalculator\\CableRunCalculator.csproj
+		SccProjectName1 = CableRunCalculator
+		SccLocalPath1 = CableRunCalculator
+	EndGlobalSection
+EndGlobal

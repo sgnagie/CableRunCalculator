@@ -1,0 +1,363 @@
+@*@using CableRunCalculator.Models*@
+
+<script>
+    var arrNewOutput = ["43", "40", "33", "21", "18"]; // starting values of face plate.
+    // cable
+    var arrRG11attenuation = ["3.88", "3", "0.93", "0.75", "0.36"];
+    var arrRG59attenuation = ["7.33", "5.7", "1.78", "1.45", "0.81"];
+    var arrRG6attenuation = ["5.93", "4.7", "1.44", "1.17", "0.61"];
+
+
+    var arrRG11output = ["38.12", "36", "31.07", "19.25", "16.64"];
+    var arrRG59output = ["34.67", "33.3", "30.22", "18.55", "16.19"];
+    var arrRG6output = ["36.07", "34.3", "30.56", "18.83", "16.39"];
+    // end cable
+
+
+    //Passive
+    var arr2wayattenuation = ["4.7", "4.2", "4", "4", "4.44"];
+    var arr3wayHighLossattenuation = ["8.1", "7.9", "7.2", "7.2", "7.5"];
+    var arr3wayLowLossattenuation = ["4.7", "4.2", "3.8", "3.8", "3.9"];
+    var arrDC12Downattenuation = ["13.2", "13.2", "13.3", "13.3", "13.8"];
+    var arrDC12Thruattenuation = ["1.7", "1.2", "1.1", "1.1", "1.1"];
+    var arrDC8Downattenuation = ["9.4", "9.1", "9.1", "9.1", "9.3"];
+    var arrDC8Thruattenuation = ["2.4", "1.9", "1.7", "1.7", "1.9"];
+
+    var arr2wayOutput = ["37.3", "34.8", "28", "16", "12.6"];
+    var arr3wayHighLossOutput = ["33.9", "31.1", "24.8", "12.8", "9.5"];
+    var arr3wayLowLossOutput = ["37.3", "34.8", "28.2", "16.2", "13.1"];
+    var arrDC12DownOutput = ["28.8", "25.8", "18.7", "6.699999999999999", "3.1999999999999993"];
+    var arrDC12ThruOutput = ["40.3", "37.8", "30.9", "18.9", "15.9"];
+    var arrDC8DownOutput = ["32.6", "29.9", "22.9", "10.9", "7.699999999999999"];
+    var arrDC8ThruOutput = ["39.6", "37.1", "30.3", "18.3", "15.1"];
+    // end passive
+
+    function updateFacePlateArray() {
+        arrNewOutput[0] = inpFpHigh.value;
+        arrNewOutput[1] = inpFpMid.value;
+        arrNewOutput[2] = inpFpLow.value;
+        arrNewOutput[3] = inpFpXmitHigh.value;
+        arrNewOutput[4] = inpFpXmitLow.value;
+    }
+
+    var j = 0;
+    function addCable() {
+        var template = document.querySelector('#cableTemp');
+        const node = document.importNode(template.content, true);
+        var setId = node.querySelector('div');
+        setId.id = "cableRunComponent_" + j++;
+        document.getElementById('cableRun').appendChild(node);
+
+    }
+
+    var k = 0;
+    function addPassive() {
+        var template = document.querySelector('#passiveTemp');
+        const node = document.importNode(template.content, true);
+        var setId = node.querySelector('div');
+        setId.id = "passiveRunComponent_" + k++;
+        document.getElementById('cableRun').appendChild(node);
+    }
+
+    function removeLast() {
+        let element = document.getElementById('cableRun');
+        element.removeChild(element.lastElementChild);
+    }
+
+    function startOver() {
+        // true reloads page from server;  false reloads from cache.
+        window.location.reload(true);
+    }
+
+
+    function calculateCable(selectObject) {
+        var arrNode = selectObject.parentElement.parentElement.parentElement.children;
+
+        // attempt to recalculate entire page.  
+        arrNewOutput[0] = inpFpHigh.value;
+        arrNewOutput[1] = inpFpMid.value;
+        arrNewOutput[2] = inpFpLow.value;
+        arrNewOutput[3] = inpFpXmitHigh.value;
+        arrNewOutput[4] = inpFpXmitLow.value;
+
+        var group = [];
+        for (var i = 1; i < arrNode.length; i += 1) {
+            console.log("first: "+ i);
+            var id = arrNode[i];
+            let selectObj = id.children[1].firstElementChild;
+
+            group.push(selectObj);
+
+            if (id.id.includes("passive")) {
+                //process passive templates
+                ddPassiveSelect(selectObj);
+            } else {
+                // process cable templates
+                ddCableSelect(selectObj);
+            }
+            console.log("last: " + i);
+        }
+
+
+    }
+
+    function ddCableSelect(selectObject) {
+        // gets the senders id from the selectObject returned
+        var value = selectObject.value;
+        var id = selectObject.parentElement.parentElement.id;
+        console.log("cable: " + value + ": id : " + id);
+
+        if (value !== "") {
+            //set var to array values in if....
+            //let arValuesOut = [];
+            let arValuesAtten = [];
+            if (value == "RG11") {
+                //arValuesOut = arrRG11output;
+                arValuesAtten = arrRG11attenuation;
+            } else if (value == "RG59") {
+                //arValuesOut = arrRG59output;
+                arValuesAtten = arrRG59attenuation;
+            } else if (value == "RG6") {
+                //arValuesOut = arrRG6output;
+                arValuesAtten = arrRG6attenuation;
+            }
+
+            // gets the child ID of the current parent
+            var parent = document.getElementById(id);
+            //var child = parent.children[3];
+            var child = parent.lastElementChild;
+
+            // attempt to enable the cable length
+            parent.children[2].lastElementChild.disabled = false;
+
+            // calculate Cable length
+            var len = parent.children[2].lastElementChild.value;
+            let cabLenDivided = len / 100; // cable length/100
+            console.log("cable length: "+ cabLenDivided);
+
+            //attenuation
+            child.querySelector('#inpCableAttHigh').value = arValuesAtten[0];
+            child.querySelector("#inpCableAttMID").value = arValuesAtten[1];
+            child.querySelector("#inpCableAttLOW").value = arValuesAtten[2];
+            child.querySelector("#inpCableAttXMitHigh").value = arValuesAtten[3];
+            child.querySelector("#inpCableAttXMitLow").value = arValuesAtten[4];
+
+            console.log("arrNewOutput[3]: " + arrNewOutput[3] + "; XMITHigh: " + child.querySelector('#inpCableAttXMitHigh').value + "; cabLength: " + cabLenDivided);
+            console.log("arrNewOutput[4]: " + arrNewOutput[4] + "; XMITHigh: " + child.querySelector('#inpCableAttXMitHigh').value + "; cabLength: " + cabLenDivided);
+
+
+            arrNewOutput[0] = (arrNewOutput[0] - (child.querySelector('#inpCableAttHigh').value * cabLenDivided)).toFixed(3);
+            arrNewOutput[1] = (arrNewOutput[1] - (child.querySelector('#inpCableAttMID').value * cabLenDivided)).toFixed(3);
+            arrNewOutput[2] = (arrNewOutput[2] - (child.querySelector('#inpCableAttLOW').value * cabLenDivided)).toFixed(3);
+            arrNewOutput[3] = (Number(arrNewOutput[3]) + (child.querySelector('#inpCableAttXMitHigh').value * cabLenDivided)).toFixed(3);
+            arrNewOutput[4] = (Number(arrNewOutput[4]) + (child.querySelector('#inpCableAttXMitLow').value * cabLenDivided)).toFixed(3);
+
+            child.querySelector("#inpCableOutPutHigh").value = arrNewOutput[0];
+            child.querySelector("#inpCableOutPutMID").value = arrNewOutput[1];
+            child.querySelector("#inpCableOutPutLOW").value = arrNewOutput[2];
+            child.querySelector("#inpCableOutPutXMitHigh").value = arrNewOutput[3];
+            child.querySelector("#inpCableOutPutXMitLow").value = arrNewOutput[4];
+
+        }
+    }
+
+    function ddPassiveSelect(selectObject) {
+        // gets the senders id from the selectObject returned
+        var value = selectObject.value;
+        var id = selectObject.parentElement.parentElement.id;
+
+        if (value !== "") {
+
+            let arValuesAtten = [];
+            if (value == "2WY") {
+                arValuesAtten = arr2wayattenuation;
+            } else if (value == "3WY HI LOSS") {
+                arValuesAtten = arr3wayHighLossattenuation;
+            } else if (value == "3WY LO LOSS") {
+                arValuesAtten = arr3wayLowLossattenuation;
+            } else if (value == "DC12 DOWN") {
+                arValuesAtten = arrDC12Downattenuation;
+            } else if (value == "DC12 THRU") {
+                arValuesAtten = arrDC12Thruattenuation;
+            } else if (value == "DC8 DOWN") {
+                arValuesAtten = arrDC8Downattenuation;
+            } else if (value == "DC8 THRU") {
+                arValuesAtten = arrDC8Thruattenuation;
+            }
+
+
+            // gets the child ID of the current parent
+            var parent = document.getElementById(id);
+            var child = parent.lastElementChild;
+
+            //attenuation
+            child.querySelector('#inpPassAttHigh').value = arValuesAtten[0];
+            child.querySelector("#inpPassAttMID").value = arValuesAtten[1];
+            child.querySelector("#inpPassAttLOW").value = arValuesAtten[2];
+            child.querySelector("#inpPassAttXMitHigh").value = arValuesAtten[3];
+            child.querySelector("#inpPassAttXMitLow").value = arValuesAtten[4];
+            //Output
+
+            for (i = 0; i < arrNewOutput.length; i++) {
+                if (i < 3) {
+                    arrNewOutput[i] = (arrNewOutput[i] - arValuesAtten[i]).toFixed(3);
+                } else {
+                    arrNewOutput[i] = (Number(arrNewOutput[i]) + Number(arValuesAtten[i])).toFixed(3);
+                }
+            }
+
+            child.querySelector("#inpPassOutPutHigh").value = arrNewOutput[0];
+            child.querySelector("#inpPassOutPutMID").value = arrNewOutput[1];
+            child.querySelector("#inpPassOutPutLOW").value = arrNewOutput[2];
+            child.querySelector("#inpPassOutPutXMitHigh").value = arrNewOutput[3];
+            child.querySelector("#inpPassOutPutXMitLow").value = arrNewOutput[4];
+        }
+    }
+
+</script>
+
+<!DOCTYPE html>
+<html>
+
+<body>
+    <noscript>
+        <strong>We're sorry but cable-run-calculator doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app">
+        <div class="header">
+            <div class="form-avatar" style="width:100%;"></div>
+            <h1 class="h1">Cable Run Calculator</h1>
+        </div>
+        <div style="overflow-x:auto;">
+            <button type="button" id="btnStartOver" onclick="startOver()">Start Over</button>
+            <div class="cable-run" id="cableRun">
+                <div class="cable-run-component" id="cableRunComponent">
+                    <div>
+                        <h4>Faceplate</h4>
+                    </div>
+                        <table cellpadding="3" cellspacing="3">
+                            <tr>
+                                <th></th>
+                                <th>HIGH</th>
+                                <th>MID</th>
+                                <th>LOW</th>
+                                <th>XMIT HIGH</th>
+                                <th>XMIT LOW</th>
+                            </tr>
+                            <tr>
+                                <th>Output Levels</th>
+                                <td><input id="inpFpHigh" type="text" size="2" value="43" onchange="updateFacePlateArray()"></td>
+                                <td><input id="inpFpMid" type="text" size="2" value="40" onchange="updateFacePlateArray()"></td>
+                                <td><input id="inpFpLow" type="text" size="2" value="33" onchange="updateFacePlateArray()"></td>
+                                <td><input id="inpFpXmitHigh" type="text" size="2" value="21" onchange="updateFacePlateArray()"></td>
+                                <td><input id="inpFpXmitLow" type="text" size="2" value="18" onchange="updateFacePlateArray()"></td>
+                            </tr>
+                        </table>
+                </div>
+            </div>
+            <div style="padding: 0px 10px 10px 10px">
+                <button type="button" id="btnRemoveLast" onclick="removeLast();">Last</button>
+            </div>
+            <div>
+                <button onclick="addCable()">+ Cable</button>
+                <button onclick="addPassive()">+ Passive</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<Template id="cableTemp">
+    <div class="cable-run-component" id="cable-run-component_temp" >
+        <span><strong>Cable</strong></span>
+        <span>
+            Type:
+            @*<select onchange="ddCableSelect(this)">*@
+            <select onchange="calculateCable(this)">
+                <option diabled="" value="">Select One</option>
+                <option value="RG11">RG11</option>
+                <option value="RG59">RG59</option>
+                <option value="RG6">RG6</option>
+            </select>
+        </span>
+
+        <span style="padding-left: 35px;">
+            Length (ft):
+            <input class="inp" type="text" id="txtlength" size="2" value="100" onchange="calculateCable(this)" disabled>
+        </span>
+        <table cellpadding="3" cellspacing="3">
+            <tr>
+                <th></th>
+                <th>HIGH</th>
+                <th>MID</th>
+                <th>LOW</th>
+                <th>XMIT HIGH</th>
+                <th>XMIT LOW</th>
+            </tr>
+            <tr>
+                <th>Attenuation</th>
+                <td><input id="inpCableAttHigh" type="text" size="2" value="0" disabled></td>
+                <td><input id="inpCableAttMID" type="text" size="2" value="0" disabled></td>
+                <td><input id="inpCableAttLOW" type="text" size="2" value="0" disabled></td>
+                <td><input id="inpCableAttXMitHigh" type="text" size="2" value="0" disabled></td>
+                <td><input id="inpCableAttXMitLow" type="text" size="2" value="0" disabled></td>
+            </tr>
+            <tr>
+                <th>Output</th>
+                <td><input id="inpCableOutPutHigh" type="text" size="2"></td>
+                <td><input id="inpCableOutPutMID" type="text" size="2"></td>
+                <td><input id="inpCableOutPutLOW" type="text" size="2"></td>
+                <td><input id="inpCableOutPutXMitHigh" type="text" size="2"></td>
+                <td><input id="inpCableOutPutXMitLow" type="text" size="2"></td>
+            </tr>
+        </table>
+    </div>
+</Template>
+
+
+<Template id="passiveTemp">
+    <div class="cable-run-component" id="passive_run-component_temp">
+        <span><strong>Passive Device</strong></span>
+        <span>
+            Type:
+            <select onchange="calculateCable(this)">
+                @*<select onchange="ddPassiveSelect(this)">*@
+
+                    <option diabled="" value="">Select One</option>
+                    <option value="2WY">2WY</option>
+                    <option value="3WY HI LOSS">3WY HI LOSS</option>
+                    <option value="3WY LO LOSS">3WY LO LOSS</option>
+                    <option value="DC12 DOWN">DC12 DOWN</option>
+                    <option value="DC12 THRU">DC12 THRU</option>
+                    <option value="DC8 DOWN">DC8 DOWN</option>
+                    <option value="DC8 THRU">DC8 THRU</option>
+                </select>
+</span>
+        <table cellpadding="3" cellspacing="3">
+            <tr>
+                <th></th>
+                <th>HIGH</th>
+                <th>MID</th>
+                <th>LOW</th>
+                <th>XMIT HIGH</th>
+                <th>XMIT LOW</th>
+            </tr>
+            <tr>
+                <th>Attenuation</th>
+                <td><input id="inpPassAttHigh" type="text" size="2" value="0" disabled></td>
+                <td><input id="inpPassAttMID" type="text" size="2" value="0" disabled></td>
+                <td><input id="inpPassAttLOW" type="text" size="2" value="0" disabled></td>
+                <td><input id="inpPassAttXMitHigh" type="text" size="2" value="0" disabled></td>
+                <td><input id="inpPassAttXMitLow" type="text" size="2" value="0" disabled></td>
+            </tr>
+            <tr>
+                <th>Output</th>
+                <td><input id="inpPassOutPutHigh" type="text" size="2" value="0"></td>
+                <td><input id="inpPassOutPutMID" type="text" size="2" value="0"></td>
+                <td><input id="inpPassOutPutLOW" type="text" size="2" value="0"></td>
+                <td><input id="inpPassOutPutXMitHigh" type="text" size="2" value="0"></td>
+                <td><input id="inpPassOutPutXMitLow" type="text" size="2" value="0"></td>
+            </tr>
+        </table>
+    </div>
+</Template>
+

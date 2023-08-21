@@ -1,0 +1,57 @@
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\bin\Debug\netcoreapp2.2\CableRunCalculator.deps.json
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\bin\Debug\netcoreapp2.2\CableRunCalculator.runtimeconfig.json
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\bin\Debug\netcoreapp2.2\CableRunCalculator.runtimeconfig.dev.json
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\bin\Debug\netcoreapp2.2\CableRunCalculator.dll
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\bin\Debug\netcoreapp2.2\CableRunCalculator.pdb
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\bin\Debug\netcoreapp2.2\CableRunCalculator.Views.dll
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\bin\Debug\netcoreapp2.2\CableRunCalculator.Views.pdb
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.csprojAssemblyReference.cache
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.csproj.CoreCompileInputs.cache
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.RazorAssemblyInfo.cache
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.RazorAssemblyInfo.cs
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.AssemblyInfoInputs.cache
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.AssemblyInfo.cs
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.TagHelpers.input.cache
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.TagHelpers.output.cache
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.RazorCoreGenerate.cache
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.RazorTargetAssemblyInfo.cache
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.RazorTargetAssemblyInfo.cs
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.Views.pdb
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.dll
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.pdb
+C:\inetpub\wwwroot\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.csproj.CopyComplete
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\bin\Debug\netcoreapp2.2\NuGet.config
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\bin\Debug\netcoreapp2.2\web.config
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\bin\Debug\netcoreapp2.2\appsettings.json
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\bin\Debug\netcoreapp2.2\CableRunCalculator.deps.json
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\bin\Debug\netcoreapp2.2\CableRunCalculator.runtimeconfig.json
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\bin\Debug\netcoreapp2.2\CableRunCalculator.runtimeconfig.dev.json
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\bin\Debug\netcoreapp2.2\CableRunCalculator.dll
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\bin\Debug\netcoreapp2.2\CableRunCalculator.pdb
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\bin\Debug\netcoreapp2.2\CableRunCalculator.Views.dll
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\bin\Debug\netcoreapp2.2\CableRunCalculator.Views.pdb
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.csproj.CoreCompileInputs.cache
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.RazorAssemblyInfo.cache
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.RazorAssemblyInfo.cs
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.AssemblyInfoInputs.cache
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.AssemblyInfo.cs
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.TagHelpers.input.cache
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.TagHelpers.output.cache
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.RazorCoreGenerate.cache
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.RazorTargetAssemblyInfo.cache
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.RazorTargetAssemblyInfo.cs
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.Views.pdb
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.dll
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.pdb
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.genruntimeconfig.cache
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.csproj.CopyComplete
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.csproj.AssemblyReference.cache
+C:\Users\sgnag\Documents\2. CODE\CableRunCalculator\CableRunCalculator\obj\Debug\netcoreapp2.2\CableRunCalculator.GeneratedMSBuildEditorConfig.editorconfig
